@@ -1,0 +1,155 @@
+﻿/* 레이아웃 초기화 */
+body { 
+  margin: 0; padding: 0; 
+  background: #121212; color: white; 
+  font-family: 'Pretendard', sans-serif;
+  min-height: 100vh;
+}
+
+/* 헤더바 고정 */
+.main-header {
+  position: fixed; top: 0; left: 0; width: 100%; height: 60px;
+  background: #1a1a1a; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px; box-sizing: border-box; z-index: 1000; border-bottom: 1px solid #333;
+}
+.logo { color: #f39c12; text-decoration: none; font-weight: bold; font-size: 20px; }
+
+/* 햄버거 버튼 */
+.hamburger { cursor: pointer; display: flex; flex-direction: column; gap: 5px; z-index: 1100; }
+.bar { width: 25px; height: 3px; background: white; transition: 0.3s; }
+.bar.open:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+.bar.open:nth-child(2) { opacity: 0; }
+.bar.open:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+/* 사이드바 */
+.side-drawer {
+  position: fixed; top: 0; right: -300px; width: 300px; height: 100%;
+  background: #1e1e1e; transition: 0.3s; z-index: 1050; padding: 80px 20px;
+  box-sizing: border-box; box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+}
+.side-drawer.active { right: 0; }
+.drawer-menu { display: flex; flex-direction: column; gap: 15px; }
+.drawer-menu a { color: white; text-decoration: none; font-size: 18px; padding: 10px 0; border-bottom: 1px solid #333; }
+
+/* 오버레이 */
+.overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1040; }
+
+/* --- 로그인 페이지 복구 섹션 --- */
+.auth-container {
+  display: flex; justify-content: center; align-items: center;
+  min-height: 100vh; padding-top: 60px; box-sizing: border-box;
+}
+
+.auth-card {
+  background: #1e1e1e; padding: 40px; border-radius: 12px;
+  width: 100%; max-width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.auth-card h2 { text-align: center; color: #f39c12; margin-bottom: 30px; }
+.auth-card form { display: flex; flex-direction: column; gap: 15px; }
+
+.auth-card input {
+  padding: 12px; background: #2a2a2a; border: 1px solid #333;
+  border-radius: 6px; color: white; width: 100%; box-sizing: border-box;
+}
+
+.auth-card button {
+  padding: 14px; background: #f39c12; border: none; border-radius: 6px;
+  color: white; font-weight: bold; cursor: pointer; margin-top: 10px;
+}
+
+/* --- 사이드바 프로필 섹션 스타일 --- */
+.drawer-profile-area {
+  background: #252525;
+  padding: 30px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-bottom: 1px solid #333;
+}
+
+.drawer-profile-area:hover {
+  background: #2a2a2a;
+}
+
+.profile-icon {
+  width: 50px;
+  height: 50px;
+  background: #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border: 2px solid #f39c12;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name, .login-prompt {
+  font-size: 18px;
+  color: #f39c12;
+  margin-bottom: 4px;
+}
+
+.sub-link {
+  font-size: 12px;
+  color: #888;
+}
+
+.logout-btn {
+  margin-top: auto;
+  background: none;
+  border: none;
+  color: #e74c3c;
+  padding: 20px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+  border-top: 1px solid #333;
+}
+
+/* 중복확인 버튼 포함 입력 그룹 */
+.input-group {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.input-group input {
+  flex: 1;
+}
+
+.input-group button {
+  width: auto !important;
+  padding: 0 15px !important;
+  font-size: 13px !important;
+  background: #333 !important;
+  white-space: nowrap;
+  margin: 0 !important;
+}
+
+.input-group button:hover {
+  background: #444 !important;
+}
+
+.main-submit-btn {
+  width: 100%;
+  margin-top: 20px;
+}
+/* 중복 확인 완료된 버튼 스타일 */
+.input-group button.checked {
+  background: #27ae60 !important; /* 초록색으로 변경 */
+  color: white !important;
+}
+
+/* 입력값이 바뀌면 다시 중복확인 하도록 유도 */
+.input-group input:focus {
+  border-color: #f39c12;
+  outline: none;
+}
